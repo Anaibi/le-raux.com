@@ -1,0 +1,716 @@
+/*=DESIGN------------------------------------------------*/ 
+/**
+ * Design values for:
+ *
+ ** LAYOUTS (width points) 
+ **
+ *** layout 1 < 480px ~ mobile ~ DEFAULT / SMALL
+ *** layout 2 < 800px ~ tablet ~ MEDIUM
+ *** layout 3 < 1000px ~ lap ~ BIG
+ *** layout 4 > 1000px ~ desk ~ BIGGEST
+ *
+ ** FONTS (family, size, weight, color)
+ ** minimum specification: body, a
+ **
+ *** Helvetica, Lato
+ *** color1: #333
+ *** weights: regular, bold
+ *
+ ** BACKGROUNDS (color) 
+ *** white
+ **/
+
+/*=PRODUCTION --------------------------------------------*/ 
+/**
+ * Production CONSTANTS for:
+ *
+ ** LAYOUTS (width mark points) 
+ **/
+
+$MEDIUM_MARK: 480px;
+$BIG_MARK: 800px;
+$BIGGEST_MARK: 1024px;
+
+ /*
+ ** FONTS 
+ **/
+
+$LATO: 'Lato', sans-serif;
+
+$BOLDER: 900;
+$LIGHT: 100;
+$BOLD: 700;
+$REGULAR: 400;
+
+$BASE_FONT_SIZE: 62.5%;  /* if using ems */
+
+/*
+ ** COLORS 
+ **/
+
+ $COLOR1: white;
+ $COLOR2: #333;
+
+/**
+ * Production variables for:
+ *
+ ** FONTS 
+ **/
+
+/*
+** FONT SIZES for DEFAULT = SMALL layout
+*/
+ 
+$a_size: 3.2vw;
+$h1_size: 5vw;
+$h2_size: 4.5vw; 
+$h3_size: 4vw; 
+$h4_size: 3.5vw;
+
+$p_size: 2.8vw;
+
+$overlay_title_medium: 8vw;
+$overlay_title_small: 4vw;
+
+
+/*
+** FONT SIZES for MEDIUM layout
+*/
+
+$a_size_w2: 2vw;
+
+$h1_size_w2: 4vw;
+$h2_size_w2: 3.5vw; 
+$h3_size_w2: 3vw; 
+$h4_size_w2: 2.5vw; 
+
+
+$overlay_title_medium_w2: 4vw;
+$overlay_title_small_w2: 3vw;
+
+
+/*
+** FONT SIZES for BIG layout
+*/
+
+$a_size_w3: 1.5vw; 
+$p_size_w3: 1.8vw; 
+
+$h1_size_w3: 2vw;
+$h2_size_w3: 1.8vw; 
+$h3_size_w3: 1.5vw; 
+$h4_size_w3: 1.2vw;
+
+$overlay_title_medium_w3: 3vw;
+$overlay_title_small_w3: 3vw;
+
+
+/*
+** FONT SIZES for BIGGER then BIG layout 
+*/
+
+$p_size_w4: 1.5vw; 
+$a_size_w4: 1.7vw; 
+
+$overlay_title_small_w4: 1.5vw;
+
+/*
+** FONT COLORS
+*/
+
+$base_font_color: $COLOR2;
+$a_color: $COLOR2;
+
+/* values for all fonts in web */
+$font_1: $LATO;
+
+
+/**
+ * Production variables for:
+ *
+ ** margins and paddings 
+ **/
+
+/*
+** margins and paddings for DEFAULT = SMALL layout
+*/
+
+$padding_header: 2.5% 0;
+
+$top_nav: 5vw;
+$margin_wrapper: 2%;
+$margin_footer: 5%;
+$margin_links1: 1.7vw;
+
+$h1_margin: 0.67em 0;
+$h2_margin: 0.5em 0;
+$h3_margin: 0.4em 0;
+$h4_margin: 0.3em 0;
+
+$p_margin: 1em 0;
+
+
+/*
+** margins and paddings for MEDIUM layout
+*/
+
+$margin_links1_w2: 2.3vw;
+
+
+/* position for BIG layout */
+$top_nav_w3: 6vh;
+$margin_wrapper_w3: auto;
+
+/*
+** margins and paddings for BIGGEST layout
+*/
+
+/* position for BIG layout */
+$margin_wrapper_w4: auto;
+
+/*=RESETS------------------------------------------------*/
+
+* {
+  padding:0;
+  margin:0; 
+}
+
+ul, li { list-style: none; }
+
+a { text-decoration: none; }
+
+/* 
+** so frame doesn't float around when x-scrolling on pad 
+*/
+
+html { overflow-x: hidden; }
+
+
+
+
+/*=CLASSES------------------------------------------------*/
+
+.left { float: left;}
+.right { float: right;}
+.clearfix { clear: both; }
+.hidden { display: none; }
+
+.hidden-text {
+  position: absolute;
+  height: 0;
+  width: 0;
+  opacity: 0;
+  font-size: 0;
+}
+
+.fullwidth { 
+  width: 100%;
+  overflow-x: visible; 
+}
+
+.wrapper { 
+  max-width: 1000px;
+  margin-left: $margin_wrapper;
+  margin-right: $margin_wrapper;
+}
+
+
+/*= GRID classes -------------------*/
+
+.tile-wrapper { 
+  overflow: hidden;
+  height: 100%;
+  display: inline-block;
+  max-height: 350px;
+  margin: 1%;
+  vertical-align: top;
+}
+
+.tile-wrapper img {
+  position: relative;
+}
+
+.tile-link {
+  height: inherit;
+  width: 100%;
+  display: inline-block;
+}
+
+.text-tile hr {
+  width: 15%;
+  margin: 5.5% 0;
+  border: 1px solid $a_color;
+}
+
+.overlay-parent { 
+  position: relative; 
+}
+
+.overlay {
+  text-transform: uppercase;
+  display: inline-block;
+  position: absolute;
+  height: inherit;
+  width: 100%;
+  top: 0;
+  background-color: black;
+  text-align: center;
+  opacity: .5;
+}
+
+.overlay .title {
+  color: white;
+  position: relative;
+  top: 30%;
+}
+
+.medium .overlay .title {
+  font-size: $overlay_title_medium;
+}
+
+.small .overlay .title {
+  font-size: $overlay_title_small;
+}
+
+.hidden.overlay { 
+  opacity: 0;
+}
+
+.hidden.overlay:hover { 
+  opacity: 0.5;
+}
+
+.centered.overlay {
+  top: 50%;
+  left: 50%;
+  margin-left: -25%;
+  margin-top: -9%;
+}
+
+
+/*= LINKS classes -------------------*/
+
+.links-1 a {
+  padding-bottom: 2px ;
+  text-transform: uppercase;
+  color: $a_color;
+  text-decoration: none;
+  font-size: $a_size;
+}
+
+.links-1 a:hover {
+  border-bottom: 2px solid $a_color;
+}
+
+.links-1 a:visited {
+  color: gray;
+}
+
+
+
+
+
+/* le-raux.com specific proportions? 
+** original home tile (2) img size: 492x349 --> ratio aprox 1.40
+** original detail tile (3) img size: 320x186 --> ratio aprox 1.72
+** original detail tile (4) img size: 110x110 --> ratio: 1
+** original gallery tile (3) img size: 320x320 --> ratio: 1
+*/
+
+$homeBg_ratio: 1.7;
+$homeGrid_ratio: 1.4;
+$detail_ratio: 1;
+$detailSuggest_ratio: 1.72;
+$gallery_ratio: 1;
+
+
+/*=BASE LAYOUT ------------------------------------------------*/
+
+body { 
+  font: $BASE_FONT_SIZE $font_1;
+  color: $base_font_color; 
+  min-height: 100vh;
+}
+
+header {
+  padding: $padding_header;
+}
+
+section {
+  min-height: 30vh;
+}
+
+#content {
+  min-height: 75vh;
+}
+
+footer.wrapper {
+  text-align: center;
+  min-height: 5vh;
+  max-height: 20vh;
+  margin-top: $margin_footer;
+  margin-bottom: $margin_footer;
+}
+
+h1 {
+  font-size: $h1_size;
+  margin: $h1_margin;
+}
+
+h2 {
+  font-size: $h2_size;
+  margin: $h1_margin;
+}
+
+h3 {
+  font-size: $h3_size;
+  margin: $h3_margin;
+}
+
+h4 {
+  font-size: $h4_size;
+  margin: $h4_margin;
+}
+
+p {
+  font-size: $p_size;
+  margin: $p_margin;
+}
+
+img { 
+  width: 100%; 
+}
+
+
+/*=ESPECIFIC LAYOUT ------------------------------*/
+
+/*= logo -------------------*/
+
+#logo {
+  width: 26%;
+  max-width: 18vw;
+}
+
+#logo a:hover {
+  background: white;
+  opacity: .8;
+}
+
+/*= menu -------------------*/
+
+#main-menu {
+  position: relative;
+  top: $top_nav;
+}
+
+#main-menu.links-1 a {
+  margin-left: $margin_links1;
+}
+
+/*= footer -------------------*/
+
+#social {
+  display: inline-block;
+}
+
+#social li {
+  background: url('../img/social-sprite.png') no-repeat;
+  width: 12vw;
+  height: 12vw;
+  max-width: 32px;
+  max-height: 32px;
+  float: left;
+  margin-left: 14px;
+}
+
+#social li:first-child {
+  margin-left: 0;
+}
+
+#social a {
+  width: 33px;
+  height: 33px;
+} 
+
+#social a:hover {
+  background: black;
+  opacity: .3;
+}
+
+#social #link_something {
+  background-position-x: -32px;
+}
+
+#social #link_facebook {
+  background-position-x: -64px;
+}
+
+#social #link_twitter {
+  background-position-x: -96px;
+}
+
+#social #link_E {
+  background-position-x: -128px;
+}
+
+
+/*= SECTIONS -------------------*/
+
+/*= home -------------------*/
+
+#img-portada {
+  max-height: 39vh;
+  overflow-y: hidden;
+  margin-bottom: 5vh;
+}
+
+#img-portada .centered.overlay {
+  width: 50%;
+}
+
+
+/*= gallery -------------------*/
+
+/* center grid (un poco chapuza :/) */
+#gallery {
+  text-align: center; 
+}
+#gallery li {
+  text-align: initial;
+}
+
+#gallery .text-tile {
+  line-height: 1.8em;
+}
+
+
+/*= detail -------------------*/
+
+#detail-img li {
+  width: 23%;
+  margin: 1%;
+  float: left;
+}
+
+#detail-img li:first-child {
+  width: 100%;
+  height: auto;
+  float: left;
+}
+
+#detail-img li:last-child {
+  margin-bottom: 5vh;
+}
+
+#detail-description > * {
+  margin-left: 2vw;
+}
+
+#detail-description .title {
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+#detail-description .description {
+  margin-top: 7vh;
+}
+
+#detail-suggest {
+  margin-top: 7vh;
+  text-align: center;
+  clear: both;
+}
+
+#detail-suggest .title {
+  display: inline-block;
+  line-height: 5vh;
+  margin-bottom: 5vh; 
+  font-weight: $REGULAR;
+  text-transform: uppercase; 
+}
+
+#detail-suggest hr {
+  width: 45%;
+  border: 1px solid black;
+  margin: 1vh auto;
+}
+
+
+/*=GRIDS ------------------------------*/
+
+/* for DEFAULT = SMALL layout, 
+** medium grid is fullwidth
+** small grid is 2col 
+*/
+
+.small {
+  width: 46%;
+  font-size: 3.8vw;
+}
+
+/* make sure grid is regular */
+.small:nth-last-child(2):nth-child(even) {
+  display: none;
+}
+
+
+/*=MEDIA QUERIES------------------------------------------------*/
+
+/*= viewport MEDIUM ------------------------------*/
+/* borrar luego pero need for ref: 480<vp<800*/
+@media screen and (min-width: $MEDIUM_MARK) {
+
+ h1 {
+    font-size: $h1_size_w2;
+  }
+  
+  h2 {
+    font-size: $h2_size_w2;
+  }
+
+  h3 {
+    font-size: $h3_size_w2;
+  }
+
+  h4 {
+    font-size: $h4_size_w2;
+  }
+
+
+  .medium .overlay .title {
+    font-size: $overlay_title_medium_w2;
+  }
+
+  .small .overlay .title {
+    font-size: $overlay_title_small_w2;
+  }
+
+
+  /*= GRIDS -------------------*/
+  /* medium grid is 2col
+  ** small grid is 3col 
+  */
+
+  .medium {
+    width: 48%;
+    float: left;
+    margin: 1%;
+  }
+  .medium:last-child {
+    float: right;
+  }
+
+  .small { 
+    width: 31%; 
+  }
+
+
+  /* make sure grid is regular */
+  
+  .small:nth-last-child(2):nth-child(even) {
+    display: inline-block;
+  }
+
+
+  /*= links and menu -------------------*/
+  
+  .links-1 a {
+    font-size: $a_size_w2;
+  }
+
+  #main-menu.links-1 a {
+    margin-left: $margin_links1_w2;
+  }
+
+
+  /*= footer --------------------------*/
+ 
+  #social {
+    float: right;
+  }
+
+
+  /*= detail -------------------------*/
+
+  #detail-suggest li:last-child {
+    display: inline-block;
+  }
+  
+  /*= gallery -------------------------*/
+  #gallery .text-tile {
+    line-height: initial;
+  }
+}
+
+
+/*= viewport BIG ------------------------------*/
+/* borrar luego pero need for ref: 800<vp<1024*/
+@media screen and (min-width: $BIG_MARK) {
+
+  p {
+   font-size: $p_size_w3;
+  }
+
+  h1 {
+    font-size: $h1_size_w3;
+  }
+  
+  h2 {
+    font-size: $h2_size_w3;
+  }
+
+  h3 {
+    font-size: $h3_size_w3;
+  }
+
+  h4 {
+    font-size: $h4_size_w3;
+  }
+
+  /*= GRIDS -------------------*/
+  /* medium grid is 2col
+  ** small grid is 3col 
+  */
+
+
+
+  /*= logo -------------------*/
+
+  #logo {
+    width: 13%;
+  }
+  
+  /*= links and menu -------------------*/
+
+  .links-1 a {
+    font-size: $a_size_w3;
+  }
+
+  #main-menu {
+    position: relative;
+    top: $top_nav_w3;
+  }
+}
+
+/*= viewport BIGGEST ------------------------------*/
+@media screen and (min-width: $BIGGEST_MARK) {
+
+  p {
+    font-size: $p_size_w4;
+  }
+  .wrapper {
+    margin: $margin_wrapper_w4;
+  }
+
+  .small {
+    width: 18%;
+  }
+
+  .small .overlay .title {
+    font-size: $overlay_title_small_w4;
+  }
+
+  #detail-suggest hr {
+   margin: 3vh auto;
+  }
+}

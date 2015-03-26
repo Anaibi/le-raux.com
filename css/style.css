@@ -1,0 +1,480 @@
+/*=DESIGN------------------------------------------------*/
+/**
+ * Design values for:
+ *
+ ** LAYOUTS (width points) 
+ **
+ *** layout 1 < 480px ~ mobile ~ DEFAULT / SMALL
+ *** layout 2 < 800px ~ tablet ~ MEDIUM
+ *** layout 3 < 1000px ~ lap ~ BIG
+ *** layout 4 > 1000px ~ desk ~ BIGGEST
+ *
+ ** FONTS (family, size, weight, color)
+ ** minimum specification: body, a
+ **
+ *** Helvetica, Lato
+ *** color1: #333
+ *** weights: regular, bold
+ *
+ ** BACKGROUNDS (color) 
+ *** white
+ **/
+/*=PRODUCTION --------------------------------------------*/
+/**
+ * Production CONSTANTS for:
+ *
+ ** LAYOUTS (width mark points) 
+ **/
+/*
+** FONTS 
+**/
+/* if using ems */
+/*
+ ** COLORS 
+ **/
+/**
+ * Production variables for:
+ *
+ ** FONTS 
+ **/
+/*
+** FONT SIZES for DEFAULT = SMALL layout
+*/
+/*
+** FONT SIZES for MEDIUM layout
+*/
+/*
+** FONT SIZES for BIG layout
+*/
+/*
+** FONT SIZES for BIGGER then BIG layout 
+*/
+/*
+** FONT COLORS
+*/
+/* values for all fonts in web */
+/**
+ * Production variables for:
+ *
+ ** margins and paddings 
+ **/
+/*
+** margins and paddings for DEFAULT = SMALL layout
+*/
+/*
+** margins and paddings for MEDIUM layout
+*/
+/* position for BIG layout */
+/*
+** margins and paddings for BIGGEST layout
+*/
+/* position for BIG layout */
+/*=RESETS------------------------------------------------*/
+* {
+  padding: 0;
+  margin: 0; }
+
+ul, li {
+  list-style: none; }
+
+a {
+  text-decoration: none; }
+
+/* 
+** so frame doesn't float around when x-scrolling on pad 
+*/
+html {
+  overflow-x: hidden; }
+
+/*=CLASSES------------------------------------------------*/
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+.clearfix {
+  clear: both; }
+
+.hidden {
+  display: none; }
+
+.hidden-text {
+  position: absolute;
+  height: 0;
+  width: 0;
+  opacity: 0;
+  font-size: 0; }
+
+.fullwidth {
+  width: 100%;
+  overflow-x: visible; }
+
+.wrapper {
+  max-width: 1000px;
+  margin-left: 2%;
+  margin-right: 2%; }
+
+/*= GRID classes -------------------*/
+.tile-wrapper {
+  overflow: hidden;
+  height: 100%;
+  display: inline-block;
+  max-height: 350px;
+  margin: 1%;
+  vertical-align: top; }
+
+.tile-wrapper img {
+  position: relative; }
+
+.tile-link {
+  height: inherit;
+  width: 100%;
+  display: inline-block; }
+
+.text-tile hr {
+  width: 15%;
+  margin: 5.5% 0;
+  border: 1px solid #333; }
+
+.overlay-parent {
+  position: relative; }
+
+.overlay {
+  text-transform: uppercase;
+  display: inline-block;
+  position: absolute;
+  height: inherit;
+  width: 100%;
+  top: 0;
+  background-color: black;
+  text-align: center;
+  opacity: .5; }
+
+.overlay .title {
+  color: white;
+  position: relative;
+  top: 30%; }
+
+.medium .overlay .title {
+  font-size: 8vw; }
+
+.small .overlay .title {
+  font-size: 4vw; }
+
+.hidden.overlay {
+  opacity: 0; }
+
+.hidden.overlay:hover {
+  opacity: 0.5; }
+
+.centered.overlay {
+  top: 50%;
+  left: 50%;
+  margin-left: -25%;
+  margin-top: -9%; }
+
+/*= LINKS classes -------------------*/
+.links-1 a {
+  padding-bottom: 2px;
+  text-transform: uppercase;
+  color: #333;
+  text-decoration: none;
+  font-size: 3.2vw; }
+
+.links-1 a:hover {
+  border-bottom: 2px solid #333; }
+
+.links-1 a:visited {
+  color: gray; }
+
+/* le-raux.com specific proportions? 
+** original home tile (2) img size: 492x349 --> ratio aprox 1.40
+** original detail tile (3) img size: 320x186 --> ratio aprox 1.72
+** original detail tile (4) img size: 110x110 --> ratio: 1
+** original gallery tile (3) img size: 320x320 --> ratio: 1
+*/
+/*=BASE LAYOUT ------------------------------------------------*/
+body {
+  font: 62.5% "Lato", sans-serif;
+  color: #333;
+  min-height: 100vh; }
+
+header {
+  padding: 2.5% 0; }
+
+section {
+  min-height: 30vh; }
+
+#content {
+  min-height: 75vh; }
+
+footer.wrapper {
+  text-align: center;
+  min-height: 5vh;
+  max-height: 20vh;
+  margin-top: 5%;
+  margin-bottom: 5%; }
+
+h1 {
+  font-size: 5vw;
+  margin: 0.67em 0; }
+
+h2 {
+  font-size: 4.5vw;
+  margin: 0.67em 0; }
+
+h3 {
+  font-size: 4vw;
+  margin: 0.4em 0; }
+
+h4 {
+  font-size: 3.5vw;
+  margin: 0.3em 0; }
+
+p {
+  font-size: 2.8vw;
+  margin: 1em 0; }
+
+img {
+  width: 100%; }
+
+/*=ESPECIFIC LAYOUT ------------------------------*/
+/*= logo -------------------*/
+#logo {
+  width: 26%;
+  max-width: 18vw; }
+
+#logo a:hover {
+  background: white;
+  opacity: .8; }
+
+/*= menu -------------------*/
+#main-menu {
+  position: relative;
+  top: 5vw; }
+
+#main-menu.links-1 a {
+  margin-left: 1.7vw; }
+
+/*= footer -------------------*/
+#social {
+  display: inline-block; }
+
+#social li {
+  background: url("../img/social-sprite.png") no-repeat;
+  width: 12vw;
+  height: 12vw;
+  max-width: 32px;
+  max-height: 32px;
+  float: left;
+  margin-left: 14px; }
+
+#social li:first-child {
+  margin-left: 0; }
+
+#social a {
+  width: 33px;
+  height: 33px; }
+
+#social a:hover {
+  background: black;
+  opacity: .3; }
+
+#social #link_something {
+  background-position-x: -32px; }
+
+#social #link_facebook {
+  background-position-x: -64px; }
+
+#social #link_twitter {
+  background-position-x: -96px; }
+
+#social #link_E {
+  background-position-x: -128px; }
+
+/*= SECTIONS -------------------*/
+/*= home -------------------*/
+#img-portada {
+  max-height: 39vh;
+  overflow-y: hidden;
+  margin-bottom: 5vh; }
+
+#img-portada .centered.overlay {
+  width: 50%; }
+
+/*= gallery -------------------*/
+/* center grid (un poco chapuza :/) */
+#gallery {
+  text-align: center; }
+
+#gallery li {
+  text-align: initial; }
+
+#gallery .text-tile {
+  line-height: 1.8em; }
+
+/*= detail -------------------*/
+#detail-img li {
+  width: 23%;
+  margin: 1%;
+  float: left; }
+
+#detail-img li:first-child {
+  width: 100%;
+  height: auto;
+  float: left; }
+
+#detail-img li:last-child {
+  margin-bottom: 5vh; }
+
+#detail-description > * {
+  margin-left: 2vw; }
+
+#detail-description .title {
+  margin-top: 0;
+  text-transform: uppercase; }
+
+#detail-description .description {
+  margin-top: 7vh; }
+
+#detail-suggest {
+  margin-top: 7vh;
+  text-align: center;
+  clear: both; }
+
+#detail-suggest .title {
+  display: inline-block;
+  line-height: 5vh;
+  margin-bottom: 5vh;
+  font-weight: 400;
+  text-transform: uppercase; }
+
+#detail-suggest hr {
+  width: 45%;
+  border: 1px solid black;
+  margin: 1vh auto; }
+
+/*=GRIDS ------------------------------*/
+/* for DEFAULT = SMALL layout, 
+** medium grid is fullwidth
+** small grid is 2col 
+*/
+.small {
+  width: 46%;
+  font-size: 3.8vw; }
+
+/* make sure grid is regular */
+.small:nth-last-child(2):nth-child(even) {
+  display: none; }
+
+/*=MEDIA QUERIES------------------------------------------------*/
+/*= viewport MEDIUM ------------------------------*/
+/* borrar luego pero need for ref: 480<vp<800*/
+@media screen and (min-width: 480px) {
+  h1 {
+    font-size: 4vw; }
+
+  h2 {
+    font-size: 3.5vw; }
+
+  h3 {
+    font-size: 3vw; }
+
+  h4 {
+    font-size: 2.5vw; }
+
+  .medium .overlay .title {
+    font-size: 4vw; }
+
+  .small .overlay .title {
+    font-size: 3vw; }
+
+  /*= GRIDS -------------------*/
+  /* medium grid is 2col
+  ** small grid is 3col 
+  */
+  .medium {
+    width: 48%;
+    float: left;
+    margin: 1%; }
+
+  .medium:last-child {
+    float: right; }
+
+  .small {
+    width: 31%; }
+
+  /* make sure grid is regular */
+  .small:nth-last-child(2):nth-child(even) {
+    display: inline-block; }
+
+  /*= links and menu -------------------*/
+  .links-1 a {
+    font-size: 2vw; }
+
+  #main-menu.links-1 a {
+    margin-left: 2.3vw; }
+
+  /*= footer --------------------------*/
+  #social {
+    float: right; }
+
+  /*= detail -------------------------*/
+  #detail-suggest li:last-child {
+    display: inline-block; }
+
+  /*= gallery -------------------------*/
+  #gallery .text-tile {
+    line-height: initial; } }
+/*= viewport BIG ------------------------------*/
+/* borrar luego pero need for ref: 800<vp<1024*/
+@media screen and (min-width: 800px) {
+  p {
+    font-size: 1.8vw; }
+
+  h1 {
+    font-size: 2vw; }
+
+  h2 {
+    font-size: 1.8vw; }
+
+  h3 {
+    font-size: 1.5vw; }
+
+  h4 {
+    font-size: 1.2vw; }
+
+  /*= GRIDS -------------------*/
+  /* medium grid is 2col
+  ** small grid is 3col 
+  */
+  /*= logo -------------------*/
+  #logo {
+    width: 13%; }
+
+  /*= links and menu -------------------*/
+  .links-1 a {
+    font-size: 1.5vw; }
+
+  #main-menu {
+    position: relative;
+    top: 6vh; } }
+/*= viewport BIGGEST ------------------------------*/
+@media screen and (min-width: 1024px) {
+  p {
+    font-size: 1.5vw; }
+
+  .wrapper {
+    margin: auto; }
+
+  .small {
+    width: 18%; }
+
+  .small .overlay .title {
+    font-size: 1.5vw; }
+
+  #detail-suggest hr {
+    margin: 3vh auto; } }
+
+/*# sourceMappingURL=style.css.map */

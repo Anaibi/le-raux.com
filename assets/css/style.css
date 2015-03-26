@@ -1,0 +1,245 @@
+@charset "UTF-8";
+/*=FONTS------------------------------------------------*/
+/* typos */
+/*=CLASSES------------------------------------------------*/
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+.clearfix {
+  clear: both; }
+
+.hidden-text {
+  position: absolute;
+  height: 0;
+  width: 0;
+  opacity: 0;
+  font-size: 0; }
+
+.hidden {
+  display: none; }
+
+.fullwidth {
+  width: 100%;
+  overflow-x: visible; }
+
+.wrapper {
+  max-width: 1000px;
+  margin: 1.5em auto; }
+
+.tile-wrapper {
+  overflow: hidden;
+  height: 100%;
+  display: inline-block;
+  max-height: 350px;
+  margin: 1%;
+  vertical-align: top; }
+
+.tile-wrapper a {
+  height: inherit;
+  width: 100%;
+  display: inline-block;
+  position: relative; }
+
+.description {
+  text-transform: uppercase;
+  display: inline-block;
+  position: absolute;
+  height: inherit;
+  width: 100%;
+  top: 0;
+  background-color: black;
+  text-align: center;
+  opacity: 0; }
+
+.description h3 {
+  color: white;
+  font-size: 2em;
+  position: relative;
+  top: 37%; }
+
+.hidden.description:hover {
+  opacity: 0.5; }
+
+/*=RESETS------------------------------------------------*/
+/* trying out resets from 'Global White Space Reset' article
+/* url: http://leftjustified.net/journal/2004/10/19/global-ws-reset/
+*/
+* {
+  padding: 0;
+  margin: 0; }
+
+/* and to mantain natural tabs:
+*/
+fieldset {
+  padding: .5em; }
+
+/* note: all side margins are controlled by browser width and all vertical spacing is controlled by font size.
+*/
+ul, li {
+  list-style: none; }
+
+html {
+  overflow-x: hidden; }
+
+/* le-raux.com specific proportions? */
+/* original home tile (2) img size: 492x349 --> ratio aprox 1.40
+/* original detail tile (3) img size: 320x186 --> ratio aprox 1.72
+/* original detail tile (4) img size: 110x110 --> ratio: 1
+/* original gallery tile (3) img size: 320x320 --> ratio: 1
+*/
+/* le-raux base layout */
+body {
+  font-family: "Lato", sans-serif;
+  color: #333; }
+
+/* hide sections unless active */
+section {
+  clear: both;
+  display: inline-block; }
+
+section.active {
+  display: inline-block; }
+
+a {
+  text-transform: uppercase;
+  color: #333;
+  text-decoration: none; }
+
+footer {
+  min-height: 5vh;
+  max-height: 20vh; }
+
+img {
+  width: 100%; }
+
+/* FOR ALL SECTIONS */
+/* LOGO */
+#logo {
+  max-height: 18vh;
+  max-width: 18vh;
+  width: 32vw;
+  padding: 0 5vw; }
+
+#logo img {
+  width: 100%;
+  height: auto; }
+
+/* MENU */
+#main-menu {
+  margin: 4vh 5vw; }
+
+#main-menu a {
+  margin-left: 1.7vw;
+  font-size: 4.7vw;
+  padding-bottom: 2px; }
+
+#main-menu a:hover {
+  border-bottom: 2px solid #333; }
+
+/* FOOTER SOCIAL */
+#social {
+  margin-right: 42px; }
+
+#social li {
+  background: url("../img/social-sprite.png") no-repeat;
+  width: 32px;
+  height: 32px;
+  float: left;
+  margin-left: 14px; }
+
+#social a {
+  width: 33px;
+  height: 33px; }
+
+#social #link_something {
+  background-position-x: -32px; }
+
+#social #link_facebook {
+  background-position-x: -64px; }
+
+#social #link_twitter {
+  background-position-x: -96px; }
+
+#social #link_E {
+  background-position-x: -128px; }
+
+/* SECTIONS */
+/* HOME */
+#img-portada {
+  max-height: 39vh;
+  overflow-y: hidden;
+  margin-bottom: 5vh;
+  margin-top: 3vh; }
+
+/* PRODUCT */
+#product-img li {
+  width: 23%;
+  margin: 1%;
+  float: left; }
+
+#product-img li:first-child {
+  width: 100%;
+  height: auto;
+  float: left; }
+
+#product-img li:last-child {
+  margin-bottom: 5vh; }
+
+#related-products {
+  margin-top: 5vh;
+  text-align: center;
+  clear: both; }
+
+#related-products h3 {
+  display: inline-block;
+  margin-bottom: 2vh;
+  line-height: 5vh;
+  margin-bottom: 5vh; }
+
+#related-products li:last-child {
+  display: none; }
+
+/*=simple grid trying out------------------------------------------------*/
+/* Custom media queries: Handheld is default — Mobile first. */
+/*@custom-media --lap screen and (min-width: 40em);*/
+@custom-media --lap screen and (min-width: 750px);
+/*@custom-media --desk screen and (min-width: 55em);*/
+@custom-media --desk screen and (min-width: 960px);
+/*@custom-media --wide screen and (min-width: 75em);*/
+@custom-media --wide screen and (min-width: 1200px);
+/* Mobile first columns */
+.col-3 {
+  width: 46%;
+  font-size: 3.8vw; }
+
+/* Lap */
+/*@media (--lap) {*/
+@media screen and (min-width: 750px) {
+  .col-2 {
+    width: 48%;
+    float: left;
+    margin: 1%; }
+
+  .col-2:last-child {
+    float: right; }
+
+  .col-2 > * {
+    clear: both; }
+
+  .col-3 {
+    width: 31%; }
+
+  #related-products {
+    margin-top: 2vh; }
+
+  #related-products li:last-child {
+    display: inline-block; } }
+/* Desk */
+/*@media (--desk) {*/
+/* Wide */
+/*@media (--wide) {*/
+
+/*# sourceMappingURL=style.css.map */
