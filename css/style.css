@@ -10,7 +10,7 @@
  *** layout 4 > 1000px ~ desk ~ BIGGEST
  *
  ** FONTS (family, size, weight, color)
- ** minimum specification: body, a
+ ** minimum specification: body (p, h), a
  **
  *** Helvetica, Lato
  *** color1: #333
@@ -35,7 +35,7 @@
 /**
  * Production variables for:
  *
- ** FONTS 
+ ** FONTS p, h
  **/
 /*
 ** FONT SIZES for DEFAULT = SMALL layout
@@ -50,7 +50,7 @@
 ** FONT SIZES for BIGGER then BIG layout 
 */
 /*
-** FONT COLORS
+** FONT COLORS p, h
 */
 /* values for all fonts in web */
 /**
@@ -64,11 +64,23 @@
 /*
 ** margins and paddings for MEDIUM layout
 */
-/* position for BIG layout */
+/*
+** margins and paddings for BIG layout
+*/
 /*
 ** margins and paddings for BIGGEST layout
 */
-/* position for BIG layout */
+/**
+ * Production variables for:
+ *
+ ** links 
+ **/
+/* general */
+/* small = default layout */
+/* medium layout */
+/* big layout */
+/* biggest layout */
+/* footer links */
 /*=RESETS------------------------------------------------*/
 * {
   padding: 0;
@@ -175,6 +187,8 @@ html {
   margin-top: -9%; }
 
 /*= LINKS classes -------------------*/
+/* links1 used in header navigation and inside tiles text links */
+/* links2 used in footer img link */
 .links-1 a {
   padding-bottom: 2px;
   text-transform: uppercase;
@@ -187,6 +201,48 @@ html {
 
 .links-1 a:visited {
   color: gray; }
+
+.links-2 {
+  display: inline-block;
+  overflow: hidden; }
+
+.links-2 li {
+  width: 12vw;
+  height: 12vw;
+  max-width: 32px;
+  max-height: 32px;
+  float: left;
+  margin-left: 15px; }
+
+.links-2 li:first-child {
+  margin-left: 0; }
+
+.links-2 a {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  overflow: hidden; }
+
+.links-2 a:hover {
+  background: black;
+  opacity: .3; }
+
+.links-2 img {
+  width: 160px;
+  height: 32px;
+  position: relative; }
+
+.links-2 li:nth-child(2) img {
+  left: -32px; }
+
+.links-2 li:nth-child(3) img {
+  left: -64px; }
+
+.links-2 li:nth-child(4) img {
+  left: -96px; }
+
+.links-2 li:nth-child(5) img {
+  left: -128px; }
 
 /* le-raux.com specific proportions? 
 ** original home tile (2) img size: 492x349 --> ratio aprox 1.40
@@ -256,42 +312,6 @@ img {
 
 #main-menu.links-1 a {
   margin-left: 1.7vw; }
-
-/*= footer -------------------*/
-#social {
-  display: inline-block; }
-
-#social li {
-  background: url("../img/social-sprite.png") no-repeat;
-  width: 12vw;
-  height: 12vw;
-  max-width: 32px;
-  max-height: 32px;
-  float: left;
-  margin-left: 14px; }
-
-#social li:first-child {
-  margin-left: 0; }
-
-#social a {
-  width: 33px;
-  height: 33px; }
-
-#social a:hover {
-  background: black;
-  opacity: .3; }
-
-#social #link_something {
-  background-position-x: -32px; }
-
-#social #link_facebook {
-  background-position-x: -64px; }
-
-#social #link_twitter {
-  background-position-x: -96px; }
-
-#social #link_E {
-  background-position-x: -128px; }
 
 /*= SECTIONS -------------------*/
 /*= home -------------------*/

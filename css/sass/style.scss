@@ -10,7 +10,7 @@
  *** layout 4 > 1000px ~ desk ~ BIGGEST
  *
  ** FONTS (family, size, weight, color)
- ** minimum specification: body, a
+ ** minimum specification: body (p, h), a
  **
  *** Helvetica, Lato
  *** color1: #333
@@ -44,6 +44,7 @@ $REGULAR: 400;
 
 $BASE_FONT_SIZE: 62.5%;  /* if using ems */
 
+
 /*
  ** COLORS 
  **/
@@ -51,17 +52,17 @@ $BASE_FONT_SIZE: 62.5%;  /* if using ems */
  $COLOR1: white;
  $COLOR2: #333;
 
+
 /**
  * Production variables for:
  *
- ** FONTS 
+ ** FONTS p, h
  **/
 
 /*
 ** FONT SIZES for DEFAULT = SMALL layout
 */
  
-$a_size: 3.2vw;
 $h1_size: 5vw;
 $h2_size: 4.5vw; 
 $h3_size: 4vw; 
@@ -77,8 +78,6 @@ $overlay_title_small: 4vw;
 ** FONT SIZES for MEDIUM layout
 */
 
-$a_size_w2: 2vw;
-
 $h1_size_w2: 4vw;
 $h2_size_w2: 3.5vw; 
 $h3_size_w2: 3vw; 
@@ -92,8 +91,7 @@ $overlay_title_small_w2: 3vw;
 /*
 ** FONT SIZES for BIG layout
 */
-
-$a_size_w3: 1.5vw; 
+ 
 $p_size_w3: 1.8vw; 
 
 $h1_size_w3: 2vw;
@@ -110,16 +108,15 @@ $overlay_title_small_w3: 3vw;
 */
 
 $p_size_w4: 1.5vw; 
-$a_size_w4: 1.7vw; 
 
 $overlay_title_small_w4: 1.5vw;
 
+
 /*
-** FONT COLORS
+** FONT COLORS p, h
 */
 
 $base_font_color: $COLOR2;
-$a_color: $COLOR2;
 
 /* values for all fonts in web */
 $font_1: $LATO;
@@ -157,7 +154,9 @@ $p_margin: 1em 0;
 $margin_links1_w2: 2.3vw;
 
 
-/* position for BIG layout */
+/*
+** margins and paddings for BIG layout
+*/
 $top_nav_w3: 6vh;
 $margin_wrapper_w3: auto;
 
@@ -165,8 +164,31 @@ $margin_wrapper_w3: auto;
 ** margins and paddings for BIGGEST layout
 */
 
-/* position for BIG layout */
 $margin_wrapper_w4: auto;
+
+
+/**
+ * Production variables for:
+ *
+ ** links 
+ **/
+
+/* general */
+
+$a_color: $COLOR2;
+
+$a_size: 3.2vw;     /* small = default layout */
+$a_size_w2: 2vw;    /* medium layout */
+$a_size_w3: 1.5vw;  /* big layout */
+$a_size_w4: 1.7vw;  /* biggest layout */
+
+
+/* footer links */
+
+$links2_max_width: 32px;
+$links2_max_height: $links2_max_width;
+$number_footer_links: 5;
+
 
 /*=RESETS------------------------------------------------*/
 
@@ -289,6 +311,8 @@ html { overflow-x: hidden; }
 
 
 /*= LINKS classes -------------------*/
+/* links1 used in header navigation and inside tiles text links */
+/* links2 used in footer img link */
 
 .links-1 a {
   padding-bottom: 2px ;
@@ -306,7 +330,47 @@ html { overflow-x: hidden; }
   color: gray;
 }
 
+.links-2 {
+  display: inline-block;
+  overflow: hidden;
+}
 
+.links-2 li {
+  width: 12vw;
+  height: 12vw;
+  max-width: $links2_max_width;
+  max-height: $links2_max_height;
+  float: left;
+  margin-left: 15px;
+}
+
+.links-2 li:first-child {
+  margin-left: 0;
+}
+
+.links-2 a {
+  width: $links2_max_width;
+  height: $links2_max_width;
+  display: inline-block;
+  overflow: hidden;
+} 
+
+.links-2 a:hover {
+  background: black;
+  opacity: .3;
+}
+
+.links-2 img {
+  width: $links2_max_width * $number_footer_links;
+  height: $links2_max_height;
+  position: relative;
+}
+
+@for $i from 2 through $number_footer_links {
+  .links-2 li:nth-child(#{$i}) img {
+    left: -($i) * $links2_max_width + $links2_max_width;
+  }
+}
 
 
 
@@ -407,51 +471,8 @@ img {
   margin-left: $margin_links1;
 }
 
-/*= footer -------------------*/
 
-#social {
-  display: inline-block;
-}
 
-#social li {
-  background: url('../img/social-sprite.png') no-repeat;
-  width: 12vw;
-  height: 12vw;
-  max-width: 32px;
-  max-height: 32px;
-  float: left;
-  margin-left: 14px;
-}
-
-#social li:first-child {
-  margin-left: 0;
-}
-
-#social a {
-  width: 33px;
-  height: 33px;
-} 
-
-#social a:hover {
-  background: black;
-  opacity: .3;
-}
-
-#social #link_something {
-  background-position-x: -32px;
-}
-
-#social #link_facebook {
-  background-position-x: -64px;
-}
-
-#social #link_twitter {
-  background-position-x: -96px;
-}
-
-#social #link_E {
-  background-position-x: -128px;
-}
 
 
 /*= SECTIONS -------------------*/
