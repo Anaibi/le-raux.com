@@ -340,13 +340,18 @@ img {
   margin: 1%;
   float: left; }
 
-#detail-img li:first-child {
+#detail-img li.featured {
   width: 100%;
   height: auto;
   float: left; }
 
 #detail-img li:last-child {
-  margin-bottom: 5vh; }
+  margin-bottom: 5vh;
+  margin-right: 0;
+  float: right; }
+
+#detail-description {
+  clear: both; }
 
 #detail-description > * {
   margin-left: 2vw; }
@@ -393,16 +398,16 @@ img {
 /* borrar luego pero need for ref: 480<vp<800*/
 @media screen and (min-width: 480px) {
   h1 {
-    font-size: 4vw; }
-
-  h2 {
-    font-size: 3.5vw; }
-
-  h3 {
     font-size: 3vw; }
 
-  h4 {
+  h2 {
     font-size: 2.5vw; }
+
+  h3 {
+    font-size: 2.2vw; }
+
+  h4 {
+    font-size: 2vw; }
 
   .medium .overlay .title {
     font-size: 4vw; }
@@ -441,6 +446,9 @@ img {
     float: right; }
 
   /*= detail -------------------------*/
+  #detail-description {
+    clear: none; }
+
   #detail-suggest li:last-child {
     display: inline-block; }
 

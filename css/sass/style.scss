@@ -78,10 +78,10 @@ $overlay_title_small: 4vw;
 ** FONT SIZES for MEDIUM layout
 */
 
-$h1_size_w2: 4vw;
-$h2_size_w2: 3.5vw; 
-$h3_size_w2: 3vw; 
-$h4_size_w2: 2.5vw; 
+$h1_size_w2: 3vw;
+$h2_size_w2: 2.5vw; 
+$h3_size_w2: 2.2vw; 
+$h4_size_w2: 2vw; 
 
 
 $overlay_title_medium_w2: 4vw;
@@ -493,6 +493,7 @@ img {
 /*= gallery -------------------*/
 
 /* center grid (un poco chapuza :/) */
+
 #gallery {
   text-align: center; 
 }
@@ -513,7 +514,7 @@ img {
   float: left;
 }
 
-#detail-img li:first-child {
+#detail-img li.featured {
   width: 100%;
   height: auto;
   float: left;
@@ -521,6 +522,12 @@ img {
 
 #detail-img li:last-child {
   margin-bottom: 5vh;
+  margin-right: 0;
+  float: right;
+}
+
+#detail-description {
+  clear: both;
 }
 
 #detail-description > * {
@@ -652,6 +659,10 @@ img {
 
 
   /*= detail -------------------------*/
+
+  #detail-description {
+    clear: none;
+  }
 
   #detail-suggest li:last-child {
     display: inline-block;

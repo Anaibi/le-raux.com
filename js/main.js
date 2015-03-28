@@ -15,7 +15,7 @@ $(function() {
       	//loadGallery();
       }
 
-    // if (imgsLoaded) {  ------------ TODO
+    // if (imgsLoaded) {  ------------ TODO -loadGallery() not working 100% yet
       // center in all tiles
       centerImgsTiles();
     // }
@@ -23,7 +23,7 @@ $(function() {
 
   $(window).resize(function() { console.log('window resize called');
 		
-	// if (imgsLoaded) {  ------------ TODO
+	// if (imgsLoaded) {  ------------ TODO -loadGallery() not working 100% yet
       // center in all tiles
       centerImgsTiles();
     // }
