@@ -514,16 +514,15 @@ img {
   float: left;
 }
 
-#detail-img li.featured {
-  width: 100%;
-  height: auto;
-  float: left;
-}
-
 #detail-img li:last-child {
   margin-bottom: 5vh;
   margin-right: 0;
-  float: right;
+}
+
+#detail-img li.featured {
+  width: 98%;
+  height: auto;
+  float: left;
 }
 
 #detail-description {
@@ -547,6 +546,10 @@ img {
   margin-top: 7vh;
   text-align: center;
   clear: both;
+}
+
+#detail-suggest .tile-wrapper {
+  text-align: left; /* otherwise overlay gets out of position */
 }
 
 #detail-suggest .title {

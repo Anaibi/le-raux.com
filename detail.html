@@ -42,9 +42,14 @@
 	<div id="content" class="fullwidth">
 
 	  <section id="detail-template">
+       
         <div id="detail">
           <div id="detail-img" class="medium">
 	        <ul>
+	          <li class="tile-wrapper"><img src="images/005.jpg" ></li>
+	          <li class="tile-wrapper"><img src="images/006.jpg" ></li>
+	          <li class="tile-wrapper"><img src="images/007.jpg" ></li>
+	          <li class="tile-wrapper"><img src="images/008.jpg" ></li>
 	          <li class="tile-wrapper featured"><img src="images/010.jpg" ></li>
 	          <li class="tile-wrapper"><img src="images/011.jpg" ></li>
 	          <li class="tile-wrapper"><img src="images/012.jpg" ></li>
@@ -60,7 +65,9 @@
           	<h4 class="title">Lorem ipsum Dolor sit amet consectetur.</h1>
           	<p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
           </div>
-           <div class="clearfix"></div>
+          
+          <div class="clearfix"><!--Test overflow:auto on parent container when doing browser and device compatibility--></div>
+
         </div>
 
         <div id="detail-suggest">
@@ -68,13 +75,22 @@
          
           <ul class="wrapper">
             <li class="small tile-wrapper">
-              <a href="#"><img src="images/008.jpg" ></a>
+              <a href="#" class="overlay-parent tile-link">
+                <img src="images/008.jpg" title="some title">
+                <div class="hidden overlay"><p class="title">some title</p></div>
+              </a>
             </li>
-            <li class="small tile-wrapper">
-              <a href="#"><img src="images/009.jpg" ></a>
+             <li class="small tile-wrapper">
+              <a href="#" class="overlay-parent tile-link">
+                <img src="images/009.jpg" title="some title">
+                <div class="hidden overlay"><p class="title">some title</p></div>
+              </a>
             </li>
-            <li class="small tile-wrapper">
-              <a href="#"><img src="images/010.jpg" ></a>
+             <li class="small tile-wrapper">
+              <a href="#" class="overlay-parent tile-link">
+                <img src="images/010.jpg" title="some title">
+                <div class="hidden overlay"><p class="title">some title</p></div>
+              </a>
             </li>
           </ul>
         </div>
