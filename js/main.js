@@ -19,6 +19,12 @@ $(function() {
       // center in all tiles
       centerImgsTiles();
     // }
+
+    // if on detail pages, set height for gallery otherwise next section jumps
+    // TODO find only css solution?
+    if (isPage('detail')) {
+    	setGalleryHeight();
+    }
   });	
 
   $(window).resize(function() { console.log('window resize called');
@@ -27,6 +33,12 @@ $(function() {
       // center in all tiles
       centerImgsTiles();
     // }
+
+    // if on detail pages, set height for gallery otherwise next section jumps
+    // TODO find only css solution?
+    if (isPage('detail')) {
+    	setGalleryHeight();
+    }
 
   });	
 
@@ -154,6 +166,13 @@ $('#detail-img li').on('click', function() {
   	// fix overlay bug --why does it get different size??
   	$tile.find('.overlay').css({'height': img_h, 'top': top});
   }
+
+
+  function setGalleryHeight() {
+  	var h = $('#detail-img ul li.featured').height() + 3*$('#detail-img ul li.tile-wrapper').height();
+  	$('#detail-img').height(h);
+  }
+
 
   //////////////////////////////////////// HELPER FUNCTIONS	
   

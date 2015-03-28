@@ -29,7 +29,7 @@
 
 $MEDIUM_MARK: 480px;
 $BIG_MARK: 800px;
-$BIGGEST_MARK: 1024px;
+$BIGGEST_MARK: 1000px;
 
  /*
  ** FONTS 
@@ -37,8 +37,8 @@ $BIGGEST_MARK: 1024px;
 
 $LATO: 'Lato', sans-serif;
 
-$BOLDER: 900;
-$LIGHT: 100;
+$BOLDER: 900; /*not used, not loaded*/  
+$LIGHT: 100; /*not used, not loaded*/
 $BOLD: 700;
 $REGULAR: 400;
 
@@ -264,23 +264,28 @@ html { overflow-x: hidden; }
   border: 1px solid $a_color;
 }
 
+
+/*= OVERLAYS classes -------------------*/
+/* overlay for general hover effect on imgs */
+
 .overlay-parent { 
   position: relative; 
 }
 
 .overlay {
-  text-transform: uppercase;
   display: inline-block;
   position: absolute;
   height: inherit;
   width: 100%;
   top: 0;
+  left: 0;
   background-color: black;
-  text-align: center;
   opacity: .5;
 }
 
 .overlay .title {
+  text-transform: uppercase;
+  text-align: center;
   color: white;
   position: relative;
   top: 30%;
@@ -299,14 +304,40 @@ html { overflow-x: hidden; }
 }
 
 .hidden.overlay:hover { 
-  opacity: 0.5;
+  opacity: .5;
 }
 
 .centered.overlay {
+  width: 50%;
   top: 50%;
   left: 50%;
   margin-left: -25%;
   margin-top: -9%;
+  text-align: center;
+}
+
+.centered.border.overlay {
+  opacity: 1;
+  background-color: transparent;
+}
+
+.white-border.title {
+  border: 1vw solid white;
+  z-index: 3;
+  display: inline-block;
+  padding: 5px;
+  margin: 0;
+  font-size: 4.7vw;
+}
+
+.translucent-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: gray;
+  opacity: .3;
 }
 
 
@@ -473,20 +504,15 @@ img {
 
 
 
-
-
 /*= SECTIONS -------------------*/
 
 /*= home -------------------*/
 
 #img-portada {
   max-height: 39vh;
+  min-height: 25vw;
   overflow-y: hidden;
   margin-bottom: 5vh;
-}
-
-#img-portada .centered.overlay {
-  width: 50%;
 }
 
 
@@ -515,7 +541,6 @@ img {
 }
 
 #detail-img li:last-child {
-  margin-bottom: 5vh;
   margin-right: 0;
 }
 
@@ -527,6 +552,7 @@ img {
 
 #detail-description {
   clear: both;
+  margin-top: 10vh;
 }
 
 #detail-description > * {
@@ -539,7 +565,7 @@ img {
 }
 
 #detail-description .description {
-  margin-top: 7vh;
+  margin-top: 5vh;
 }
 
 #detail-suggest {
@@ -552,8 +578,11 @@ img {
   text-align: left; /* otherwise overlay gets out of position */
 }
 
+#detail-suggest > .title {
+  display: inline-block; /* only for first title */
+}
+
 #detail-suggest .title {
-  display: inline-block;
   line-height: 5vh;
   margin-bottom: 5vh; 
   font-weight: $REGULAR;
@@ -616,6 +645,9 @@ img {
     font-size: $overlay_title_small_w2;
   }
 
+  .centered.overlay {
+    top: 55%;
+  }
 
   /*= GRIDS -------------------*/
   /* medium grid is 2col
@@ -654,17 +686,11 @@ img {
   }
 
 
-  /*= footer --------------------------*/
- 
-  #social {
-    float: right;
-  }
-
-
   /*= detail -------------------------*/
 
   #detail-description {
     clear: none;
+    margin-top: 0;
   }
 
   #detail-suggest li:last-child {
@@ -672,14 +698,21 @@ img {
   }
   
   /*= gallery -------------------------*/
+  
   #gallery .text-tile {
     line-height: initial;
+  }
+
+  /*= footer --------------------------*/
+ 
+  #social {
+    float: right;
   }
 }
 
 
 /*= viewport BIG ------------------------------*/
-/* borrar luego pero need for ref: 800<vp<1024*/
+/* borrar luego pero need for ref: 800<vp<1000*/
 @media screen and (min-width: $BIG_MARK) {
 
   p {
@@ -702,10 +735,10 @@ img {
     font-size: $h4_size_w3;
   }
 
-  /*= GRIDS -------------------*/
-  /* medium grid is 2col
-  ** small grid is 3col 
-  */
+  
+  .centered.overlay {
+    top: 57%;
+  }
 
 
 
@@ -743,6 +776,13 @@ img {
 
   .small .overlay .title {
     font-size: $overlay_title_small_w4;
+  }
+
+  .centered.overlay {
+    top: 56%;
+  } 
+  #gallery li:last-child {
+    display: none; /* quick fix -> update to conditional if more then actual tiles */
   }
 
   #detail-suggest hr {
