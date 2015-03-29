@@ -129,7 +129,7 @@ html {
   margin-left: 2%;
   margin-right: 2%; }
 
-/*= GRID classes -------------------*/
+/*= TILE classes -------------------*/
 .tile-wrapper {
   overflow: hidden;
   height: 100%;
@@ -278,11 +278,34 @@ html {
 ** original detail tile (4) img size: 110x110 --> ratio: 1
 ** original gallery tile (3) img size: 320x320 --> ratio: 1
 */
+/*=GRIDS ------------------------------*/
+/* for DEFAULT = SMALL layout, 
+** medium grid is fullwidth and changes to 2col with bigger layout
+** small grid is 2col and changes to three with bigger layout
+** col-4 is independent of layout
+** col-3 is independent of layout
+*/
+.small {
+  width: 46%; }
+
+/* make sure grid is regular */
+.small:nth-last-child(2):nth-child(even) {
+  display: none; }
+
+.col-3 {
+  width: 30%; }
+
+.col-4 {
+  width: 23%;
+  float: left; }
+
 /*=BASE LAYOUT ------------------------------------------------*/
 body {
   font: 62.5% "Lato", sans-serif;
   color: #333;
-  min-height: 100vh; }
+  min-height: 100vh;
+  background: url("../img/detail-top.jpg") no-repeat;
+  background-size: 100% 6px; }
 
 header {
   padding: 2.5% 0; }
@@ -291,7 +314,7 @@ section {
   min-height: 30vh; }
 
 #content {
-  min-height: 75vh; }
+  min-height: 65vh; }
 
 footer.wrapper {
   text-align: center;
@@ -317,7 +340,7 @@ h4 {
   margin: 0.3em 0; }
 
 p {
-  font-size: 2.8vw;
+  font-size: 2.3vw;
   margin: 1em 0; }
 
 img {
@@ -343,6 +366,9 @@ img {
 
 /*= SECTIONS -------------------*/
 /*= home -------------------*/
+body.home {
+  background: none; }
+
 #img-portada {
   max-height: 39vh;
   min-height: 25vw;
@@ -354,22 +380,17 @@ img {
 #gallery {
   text-align: center; }
 
-#gallery li {
+#gallery .tile-wrapper {
   text-align: initial; }
 
 #gallery .text-tile {
   line-height: 1.8em; }
 
 /*= detail -------------------*/
-#detail-img li {
-  width: 23%;
-  margin: 1%;
-  float: left; }
-
-#detail-img li:last-child {
+#detail-img .tile-wrapper:last-child {
   margin-right: 0; }
 
-#detail-img li.featured {
+#detail-img .featured {
   width: 98%;
   height: auto;
   float: left; }
@@ -379,19 +400,24 @@ img {
   margin-top: 10vh; }
 
 #detail-description > * {
-  margin-left: 2vw; }
+  margin-left: 5vw; }
 
 #detail-description .title {
   margin-top: 0;
   text-transform: uppercase; }
 
 #detail-description .description {
-  margin-top: 5vh; }
+  margin-top: 5vw;
+  margin-right: 5vw; }
 
 #detail-suggest {
   margin-top: 7vh;
   text-align: center;
   clear: both; }
+
+#detail-suggest ul {
+  height: 15vw;
+  overflow: hidden; }
 
 #detail-suggest .tile-wrapper {
   text-align: left;
@@ -411,19 +437,6 @@ img {
   width: 45%;
   border: 1px solid black;
   margin: 1vh auto; }
-
-/*=GRIDS ------------------------------*/
-/* for DEFAULT = SMALL layout, 
-** medium grid is fullwidth
-** small grid is 2col 
-*/
-.small {
-  width: 46%;
-  font-size: 3.8vw; }
-
-/* make sure grid is regular */
-.small:nth-last-child(2):nth-child(even) {
-  display: none; }
 
 /*=MEDIA QUERIES------------------------------------------------*/
 /*= viewport MEDIUM ------------------------------*/
@@ -479,7 +492,7 @@ img {
   /*= detail -------------------------*/
   #detail-description {
     clear: none;
-    margin-top: 0; }
+    margin-top: 1%; }
 
   #detail-suggest li:last-child {
     display: inline-block; }
@@ -487,6 +500,10 @@ img {
   /*= gallery -------------------------*/
   #gallery .text-tile {
     line-height: initial; }
+
+  /*= about -------------------------*/
+  #about p {
+    text-align: justify; }
 
   /*= footer --------------------------*/
   #social {
@@ -547,3 +564,4 @@ img {
   #detail-suggest hr {
     margin: 3vh auto; } }
 
+/*# sourceMappingURL=style.css.map */

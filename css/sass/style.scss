@@ -68,7 +68,7 @@ $h2_size: 4.5vw;
 $h3_size: 4vw; 
 $h4_size: 3.5vw;
 
-$p_size: 2.8vw;
+$p_size: 2.3vw;
 
 $overlay_title_medium: 8vw;
 $overlay_title_small: 4vw;
@@ -145,6 +145,8 @@ $h3_margin: 0.4em 0;
 $h4_margin: 0.3em 0;
 
 $p_margin: 1em 0;
+
+$margins_detail_description: 5vw;
 
 
 /*
@@ -237,7 +239,7 @@ html { overflow-x: hidden; }
 }
 
 
-/*= GRID classes -------------------*/
+/*= TILE classes -------------------*/
 
 .tile-wrapper { 
   overflow: hidden;
@@ -419,12 +421,42 @@ $detailSuggest_ratio: 1.72;
 $gallery_ratio: 1;
 
 
+/*=GRIDS ------------------------------*/
+
+/* for DEFAULT = SMALL layout, 
+** medium grid is fullwidth and changes to 2col with bigger layout
+** small grid is 2col and changes to three with bigger layout
+** col-4 is independent of layout
+** col-3 is independent of layout
+*/
+
+.small {
+  width: 46%;
+}
+
+/* make sure grid is regular */
+.small:nth-last-child(2):nth-child(even) {
+  display: none;
+}
+
+.col-3 {
+  width: 30%;
+}
+
+.col-4 {
+  width: 23%;
+  float: left;
+}
+
+
 /*=BASE LAYOUT ------------------------------------------------*/
 
 body { 
   font: $BASE_FONT_SIZE $font_1;
   color: $base_font_color; 
   min-height: 100vh;
+  background: url('../img/detail-top.jpg') no-repeat;
+  background-size: 100% 6px;
 }
 
 header {
@@ -436,7 +468,7 @@ section {
 }
 
 #content {
-  min-height: 75vh;
+  min-height: 65vh;
 }
 
 footer.wrapper {
@@ -508,6 +540,10 @@ img {
 
 /*= home -------------------*/
 
+body.home {
+  background: none;
+}
+
 #img-portada {
   max-height: 39vh;
   min-height: 25vw;
@@ -523,7 +559,7 @@ img {
 #gallery {
   text-align: center; 
 }
-#gallery li {
+#gallery .tile-wrapper {
   text-align: initial;
 }
 
@@ -534,17 +570,11 @@ img {
 
 /*= detail -------------------*/
 
-#detail-img li {
-  width: 23%;
-  margin: 1%;
-  float: left;
-}
-
-#detail-img li:last-child {
+#detail-img .tile-wrapper:last-child {
   margin-right: 0;
 }
 
-#detail-img li.featured {
+#detail-img .featured {
   width: 98%;
   height: auto;
   float: left;
@@ -556,7 +586,7 @@ img {
 }
 
 #detail-description > * {
-  margin-left: 2vw;
+  margin-left: $margins_detail_description;
 }
 
 #detail-description .title {
@@ -565,13 +595,19 @@ img {
 }
 
 #detail-description .description {
-  margin-top: 5vh;
+  margin-top: $margins_detail_description;
+  margin-right: $margins_detail_description;
 }
 
 #detail-suggest {
   margin-top: 7vh;
   text-align: center;
   clear: both;
+}
+
+#detail-suggest ul {
+  height: 15vw;
+  overflow: hidden;
 }
 
 #detail-suggest .tile-wrapper {
@@ -593,24 +629,6 @@ img {
   width: 45%;
   border: 1px solid black;
   margin: 1vh auto;
-}
-
-
-/*=GRIDS ------------------------------*/
-
-/* for DEFAULT = SMALL layout, 
-** medium grid is fullwidth
-** small grid is 2col 
-*/
-
-.small {
-  width: 46%;
-  font-size: 3.8vw;
-}
-
-/* make sure grid is regular */
-.small:nth-last-child(2):nth-child(even) {
-  display: none;
 }
 
 
@@ -690,17 +708,25 @@ img {
 
   #detail-description {
     clear: none;
-    margin-top: 0;
+    margin-top: 1%;
   }
 
   #detail-suggest li:last-child {
     display: inline-block;
   }
+
   
   /*= gallery -------------------------*/
   
   #gallery .text-tile {
     line-height: initial;
+  }
+
+  
+  /*= about -------------------------*/
+
+  #about p {
+    text-align: justify;
   }
 
   /*= footer --------------------------*/
@@ -766,6 +792,7 @@ img {
   p {
     font-size: $p_size_w4;
   }
+
   .wrapper {
     margin: $margin_wrapper_w4;
   }
@@ -781,11 +808,12 @@ img {
   .centered.overlay {
     top: 56%;
   } 
+
   #gallery li:last-child {
     display: none; /* quick fix -> update to conditional if more then actual tiles */
   }
 
   #detail-suggest hr {
-   margin: 3vh auto;
+    margin: 3vh auto;
   }
 }
