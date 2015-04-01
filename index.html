@@ -46,7 +46,7 @@
 	    <div id="img-portada" class="overlay-parent">
 		  <img src="images/mood/002_1200.jpeg" title="For the Well Travelled Home" >
 		  <div class="centered border overlay"><!--img src="img/home-bg-txt.png" /-->
-		    <h1 class="white-border title">For the Well<br /> Travelled Home</h>
+		    <h1 class="white-border title">For the Well<br /> Travelled Home</h1>
 		  </div>
 		  <div class="translucent-bg"></div><!--try all overlays with svg-->
 		</div>
@@ -55,24 +55,29 @@
 		  <div class="tile-wrapper medium">
 		    <a href="gallery.html" class="overlay-parent tile-link">
 		      <img src="images/010.jpg" title="2015 Collection" >
-		      <div class="hidden overlay"><p class="title">2015 collection</p>
-		        <hr class="title" style="display: none;">
+		      <div class="overlay">
+		        <div class="title">2015 collection
+		          <hr>
+		        </div>        
 		      </div>
 		    </a>
 		  </div>
 		  <div class="tile-wrapper medium">
 		    <a href="gallery.html" class="overlay-parent tile-link">
 		      <img src="images/008.jpg" title="2015 collection" >
-		      <div class="hidden overlay"><p class="title">2015 collection</p></div>
+		      <div class="overlay">
+		        <div class="title">2015 collection
+		          <hr>
+		        </div>        
+		      </div>
 		    </a>
 		  </div>
+		  <div class="clearfix"><!--Test overflow:auto on parent container when doing browser and device compatibility--></div>
 		</div>
-
+      
 	  </section><!-- End Home -->
-   
-
-    <div class="clearfix"><!--Test overflow:auto on parent container when doing browser and device compatibility--></div>
-
+    </div>   
+  
 
 	<footer class="wrapper">
 	  
@@ -108,7 +113,7 @@
     <script>
       WebFont.load({
         google: {
-          families: ['Lato: 400, 700']
+          families: ['Lato']
         }
       });
     </script>

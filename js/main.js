@@ -155,7 +155,7 @@ $('#detail-img li').on('click', function() {
 
   function centerImg(tile) { l();
   	// center img
-    var $tile = $(tile); //does this make any difference? or just using $(tile) would be the same?
+    var $tile = $(tile); 
     var $img = $tile.find('img');
     var img_h = $img.height(); 
   	var top = ($tile.height() - img_h) / 2;
@@ -196,7 +196,7 @@ $('#detail-img li').on('click', function() {
       // imgs: [ img ]
     var imgs = [];
 
-    for (i=1; i<15; i++) {
+    for (i=1; i<10; i++) {
       _src = 'images/00' + i + '.jpg';
   	  _title = 'imagen ' + i;
       _description = _title;
@@ -224,7 +224,7 @@ $('#detail-img li').on('click', function() {
     /* list of tags for filter options */
       // detail = { id (i), p (imgs), t (title), d (description), t (tags) }
   
-    // gallery array of details from which to retrieve img and title
+    // gallery: array of details from which to retrieve img and title
       // gallery = [ detail ]
     var gallery = [], _imgs = [], _id, _tags;
     var detail_i;

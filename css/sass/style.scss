@@ -20,6 +20,25 @@
  *** white
  **/
 
+
+/* le-raux.com specific proportions?  RATIOS
+** design width/height 1000 x 1750 --> ratio aprox 0.57 
+** original home tile (2) img size: 492x349 --> ratio aprox 1.40
+** original detail tile (3) img size: 320x186 --> ratio aprox 1.72
+** original detail tile (4) img size: 110x110 --> ratio: 1
+** original gallery tile (3) img size: 320x320 --> ratio: 1
+*/
+
+$homeBg_ratio: 1.7;
+$homeGrid_ratio: 1.4; 
+$detail_ratio: 1;
+$detailSuggest_ratio: 1.72;
+$gallery_ratio: 1; 
+
+$total_page_height: 175vw; 
+
+
+
 /*=PRODUCTION --------------------------------------------*/ 
 /**
  * Production CONSTANTS for:
@@ -129,7 +148,7 @@ $font_1: $LATO;
  **/
 
 /*
-** margins and paddings for DEFAULT = SMALL layout
+** margins, paddings and sizes/height/widht for DEFAULT = SMALL layout
 */
 
 $padding_header: 2.5% 0;
@@ -137,6 +156,7 @@ $padding_header: 2.5% 0;
 $top_nav: 5vw;
 $margin_wrapper: 2%;
 $margin_footer: 5%;
+
 $margin_links1: 1.7vw;
 
 $h1_margin: 0.67em 0;
@@ -148,6 +168,24 @@ $p_margin: 1em 0;
 
 $margins_detail_description: 5vw;
 
+$body_background_size: 100% 3px;
+
+
+/* IMG PORTADA CENTERED OVERLAY */
+$img_portada_max_h: 58vw;
+$img_portada_min_h: 25vw;
+
+$img_portada_width: 73%;
+$img_portada_top: 40%;
+$img_portada_left: 37%;
+$img_portada_margin_left: -24%;
+$img_portada_margin_top: -9%;
+
+$img_portada_font_size: 7.5vw;
+
+/* TILE HEIGHTS */
+$home_grid_height: 68vw;
+
 
 /*
 ** margins and paddings for MEDIUM layout
@@ -155,12 +193,19 @@ $margins_detail_description: 5vw;
 
 $margin_links1_w2: 2.3vw;
 
+$body_background_size_w2: 100% 5px;
+
+/* TILE HEIGHTS */
+$home_grid_height_w2: 32vw;
 
 /*
 ** margins and paddings for BIG layout
 */
 $top_nav_w3: 6vh;
 $margin_wrapper_w3: auto;
+
+$body_background_size_w3: 100% 6px;
+
 
 /*
 ** margins and paddings for BIGGEST layout
@@ -268,7 +313,8 @@ html { overflow-x: hidden; }
 
 
 /*= OVERLAYS classes -------------------*/
-/* overlay for general hover effect on imgs */
+/* .overlay for general hover effect on imgs */
+/* .border.overlay home bg img */
 
 .overlay-parent { 
   position: relative; 
@@ -281,8 +327,6 @@ html { overflow-x: hidden; }
   width: 100%;
   top: 0;
   left: 0;
-  background-color: black;
-  opacity: .5;
 }
 
 .overlay .title {
@@ -290,7 +334,13 @@ html { overflow-x: hidden; }
   text-align: center;
   color: white;
   position: relative;
-  top: 30%;
+  top: 37%;
+}
+
+.overlay hr {
+  width: 10%;
+  border: 1px solid white;
+  margin: auto;
 }
 
 .medium .overlay .title {
@@ -301,15 +351,16 @@ html { overflow-x: hidden; }
   font-size: $overlay_title_small;
 }
 
-.hidden.overlay { 
-  opacity: 0;
+.tile-link .overlay { 
+  background-color: rgba(0,0,0,0.4);
+  display: none;
 }
 
-.hidden.overlay:hover { 
-  opacity: .5;
+.tile-link:hover .overlay { 
+  display: inline-block;
 }
 
-.centered.overlay {
+.border.overlay {
   width: 50%;
   top: 50%;
   left: 50%;
@@ -318,29 +369,13 @@ html { overflow-x: hidden; }
   text-align: center;
 }
 
-.centered.border.overlay {
-  opacity: 1;
-  background-color: transparent;
-}
-
-.white-border.title {
+.border .title {
   border: 1vw solid white;
-  z-index: 3;
-  display: inline-block;
   padding: 5px;
   margin: 0;
-  font-size: 4.7vw;
+  background: rgba(255,255,255,0.2);
 }
 
-.translucent-bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: gray;
-  opacity: .3;
-}
 
 
 /*= LINKS classes -------------------*/
@@ -407,20 +442,6 @@ html { overflow-x: hidden; }
 
 
 
-/* le-raux.com specific proportions? 
-** original home tile (2) img size: 492x349 --> ratio aprox 1.40
-** original detail tile (3) img size: 320x186 --> ratio aprox 1.72
-** original detail tile (4) img size: 110x110 --> ratio: 1
-** original gallery tile (3) img size: 320x320 --> ratio: 1
-*/
-
-$homeBg_ratio: 1.7;
-$homeGrid_ratio: 1.4;
-$detail_ratio: 1;
-$detailSuggest_ratio: 1.72;
-$gallery_ratio: 1;
-
-
 /*=GRIDS ------------------------------*/
 
 /* for DEFAULT = SMALL layout, 
@@ -451,12 +472,18 @@ $gallery_ratio: 1;
 
 /*=BASE LAYOUT ------------------------------------------------*/
 
+html {
+  height: $total_page_height;
+}
+
 body { 
   font: $BASE_FONT_SIZE $font_1;
   color: $base_font_color; 
   min-height: 100vh;
   background: url('../img/detail-top.jpg') no-repeat;
-  background-size: 100% 6px;
+  background-size: $body_background_size;
+  position: relative;  
+  height: 100%;
 }
 
 header {
@@ -472,6 +499,9 @@ section {
 }
 
 footer.wrapper {
+  position: absolute;
+  bottom: 0;
+  right: 0;
   text-align: center;
   min-height: 5vh;
   max-height: 20vh;
@@ -545,10 +575,28 @@ body.home {
 }
 
 #img-portada {
-  max-height: 39vh;
-  min-height: 25vw;
+  max-height: $img_portada_max_h;
+  min-height: $img_portada_min_h;
   overflow-y: hidden;
   margin-bottom: 5vh;
+  opacity: 0.7;
+}
+
+#img-portada .overlay {
+  width: $img_portada_width;
+  top: $img_portada_top;
+  left: $img_portada_left;
+  margin-left: $img_portada_margin_left;
+  margin-top: $img_portada_margin_top;
+}
+
+#img-portada .title {
+  font-size: $img_portada_font_size;
+  font-weight: 100;
+}
+
+#home-gallery .tile-wrapper {
+  height: $home_grid_height;
 }
 
 
@@ -559,12 +607,17 @@ body.home {
 #gallery {
   text-align: center; 
 }
+
 #gallery .tile-wrapper {
   text-align: initial;
 }
 
 #gallery .text-tile {
   line-height: 1.8em;
+}
+
+#gallery .overlay .title {
+  top: 23%;
 }
 
 
@@ -614,18 +667,14 @@ body.home {
   text-align: left; /* otherwise overlay gets out of position */
 }
 
-#detail-suggest > .title {
-  display: inline-block; /* only for first title */
-}
-
-#detail-suggest .title {
-  line-height: 5vh;
-  margin-bottom: 5vh; 
+#detail-suggest > .title { /* only for first title */
+  display: inline-block; 
+  margin-bottom: 2vh; 
   font-weight: $REGULAR;
   text-transform: uppercase; 
 }
 
-#detail-suggest hr {
+#detail-suggest > .title hr {
   width: 45%;
   border: 1px solid black;
   margin: 1vh auto;
@@ -638,7 +687,11 @@ body.home {
 /* borrar luego pero need for ref: 480<vp<800*/
 @media screen and (min-width: $MEDIUM_MARK) {
 
- h1 {
+  body {
+    background-size: body_background_size_w2;
+  }
+
+  h1 {
     font-size: $h1_size_w2;
   }
   
@@ -703,6 +756,11 @@ body.home {
     margin-left: $margin_links1_w2;
   }
 
+  /*= home -------------------------*/
+
+  #home-gallery .tile-wrapper {
+    height: $home_grid_height_w2;
+  }
 
   /*= detail -------------------------*/
 
@@ -740,6 +798,10 @@ body.home {
 /*= viewport BIG ------------------------------*/
 /* borrar luego pero need for ref: 800<vp<1000*/
 @media screen and (min-width: $BIG_MARK) {
+
+  body {
+    background-size: $body_background_size_w3;
+  }
 
   p {
    font-size: $p_size_w3;

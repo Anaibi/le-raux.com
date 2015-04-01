@@ -5,9 +5,20 @@
 
     <name> -- <role> -- <twitter>
 
-# THANKS
+# THANKS to the people behind
 
-    <name>
+    HTML5 BOILERPLATE (html5boilerplate.com/) &  humanstxt.org/ 
+    for providing this template
+
+    -update as web evolves-
+
+# allways THANKS to the people behind
+
+    stackoverflow.com/ , www.w3schools.com/ , jquery.com/
+    for a beautiful phylosophy and always being there, U'RE THE BEST
+
+    GIT & GITHUB, openSource openCode openSoftware 
+
 
 # TECHNOLOGY COLOPHON
 
