@@ -294,9 +294,6 @@ html {
   float: left; }
 
 /*=BASE LAYOUT ------------------------------------------------*/
-html {
-  height: 175vw; }
-
 body {
   font: 62.5% "Lato", sans-serif;
   color: #333;
@@ -316,14 +313,14 @@ section {
   min-height: 65vh; }
 
 footer.wrapper {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  text-align: center;
   min-height: 5vh;
   max-height: 20vh;
-  margin-top: 5%;
+  margin-top: 350px;
   margin-bottom: 5%; }
+
+footer p {
+  margin: 0;
+  font-size: 1.65vw; }
 
 h1 {
   font-size: 5vw;
@@ -480,6 +477,9 @@ body.home {
   .small .overlay .title {
     font-size: 3vw; }
 
+  .col-3 .overlay .title {
+    font-size: 2vw; }
+
   .centered.overlay {
     top: 55%; }
 
@@ -585,7 +585,7 @@ body.home {
     top: 56%; }
 
   #gallery li:last-child {
-    display: none;
+    /* display: none;*/
     /* quick fix -> update to conditional if more then actual tiles */ }
 
   #detail-suggest hr {

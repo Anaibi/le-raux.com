@@ -91,6 +91,7 @@ $p_size: 2.3vw;
 
 $overlay_title_medium: 8vw;
 $overlay_title_small: 4vw;
+$overlay_title_col3_w: 2vw;
 
 
 /*
@@ -105,6 +106,7 @@ $h4_size_w2: 2vw;
 
 $overlay_title_medium_w2: 4vw;
 $overlay_title_small_w2: 3vw;
+$overlay_title_col3_w2: 2vw;
 
 
 /*
@@ -155,7 +157,9 @@ $padding_header: 2.5% 0;
 
 $top_nav: 5vw;
 $margin_wrapper: 2%;
-$margin_footer: 5%;
+$margin_top_footer: 350px;
+$margin_bottom_footer: 5%;
+
 
 $margin_links1: 1.7vw;
 
@@ -472,10 +476,6 @@ html { overflow-x: hidden; }
 
 /*=BASE LAYOUT ------------------------------------------------*/
 
-html {
-  height: $total_page_height;
-}
-
 body { 
   font: $BASE_FONT_SIZE $font_1;
   color: $base_font_color; 
@@ -499,14 +499,15 @@ section {
 }
 
 footer.wrapper {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  text-align: center;
   min-height: 5vh;
   max-height: 20vh;
-  margin-top: $margin_footer;
-  margin-bottom: $margin_footer;
+  margin-top: $margin_top_footer;
+  margin-bottom: $margin_bottom_footer;
+}
+
+footer p {
+  margin: 0;
+  font-size: 1.65vw;
 }
 
 h1 {
@@ -716,6 +717,10 @@ body.home {
     font-size: $overlay_title_small_w2;
   }
 
+  .col-3 .overlay .title {
+    font-size: $overlay_title_col3_w2;
+  }
+
   .centered.overlay {
     top: 55%;
   }
@@ -872,7 +877,7 @@ body.home {
   } 
 
   #gallery li:last-child {
-    display: none; /* quick fix -> update to conditional if more then actual tiles */
+   /* display: none;*/ /* quick fix -> update to conditional if more then actual tiles */
   }
 
   #detail-suggest hr {
