@@ -501,7 +501,7 @@ body.home {
   /* medium grid is 2col
   ** small grid is 3col 
   */
-  .small {
+  .small:nth-child(n) {
     width: 32%;
     float: none;
     clear: both;
@@ -601,8 +601,11 @@ body.home {
 
   /*= GRID -------------------*/
   /* .small (in gallery page) 4 columns */
-  .small {
-    width: 23%; }
+  .small:nth-child(n) {
+    width: 23%;
+    float: none;
+    clear: both;
+    margin: 1%; }
 
   /* 1st, 5th, 10th.. --> left column */
   .small:first-child,
@@ -652,7 +655,10 @@ body.home {
   /*= GRID -------------------*/
   /* .small (in gallery page) 4 columns */
   .small {
-    width: 24%; }
+    width: 24%;
+    float: none;
+    clear: both;
+    margin: 1%; }
 
   .small .overlay .title {
     font-size: 1.5vw; }

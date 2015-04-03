@@ -752,7 +752,7 @@ body.home {
   ** small grid is 3col 
   */
 
-  .small {
+  .small:nth-child(n) {
     width: 32%;
     @include small_reset;
   }
@@ -876,7 +876,6 @@ body.home {
   }
 
 
-
   /*= logo -------------------*/
 
   #logo {
@@ -899,9 +898,11 @@ body.home {
   /*= GRID -------------------*/
 
   /* .small (in gallery page) 4 columns */
-  .small {
+  .small:nth-child(n) {
     width: 23%;
+    @include small_reset;
   }
+
 
   /* 1st, 5th, 10th.. --> left column */
   .small:first-child,
@@ -966,11 +967,13 @@ body.home {
   /* .small (in gallery page) 4 columns */
   .small {
     width: 24%;
+    @include small_reset;
   }
 
   .small .overlay .title {
     font-size: $overlay_title_small_w4;
   }
+
 
   /* 1st, 5th, 10th.. --> left column */
   .small:first-child,
