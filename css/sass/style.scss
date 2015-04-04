@@ -55,6 +55,9 @@ $BIGGEST_MARK: 1000px;
  **/
 
 $LATO: 'Lato', sans-serif;
+$HELVETICA: Helvetica, Arial, "Lucida Grande", sans-serif;
+
+
 
 $BOLDER: 900; /*not used, not loaded*/  
 $LIGHT: 100; /*not used, not loaded*/
@@ -130,7 +133,7 @@ $overlay_title_small_w3: 3vw;
 
 $p_size_w4: 1.5vw; 
 
-$overlay_title_small_w4: 1.5vw;
+$overlay_title_small_w4: 1.8vw;
 
 
 /*
@@ -140,7 +143,7 @@ $overlay_title_small_w4: 1.5vw;
 $base_font_color: $COLOR2;
 
 /* values for all fonts in web */
-$font_1: $LATO;
+$font_1: $HELVETICA, $LATO;
 
 
 /**
@@ -309,9 +312,13 @@ html { overflow-x: hidden; }
   display: inline-block;
 }
 
+.text-tile li {
+  line-height: 2;
+}
+
 .text-tile hr {
   width: 15%;
-  margin: 5.5% 0;
+  margin: 5.1% 0;
   border: 1px solid $a_color;
 }
 
@@ -338,7 +345,7 @@ html { overflow-x: hidden; }
   text-align: center;
   color: white;
   position: relative;
-  top: 37%;
+  top: 41%;
 }
 
 .overlay hr {
@@ -375,7 +382,7 @@ html { overflow-x: hidden; }
 
 .border .title {
   border: .7vw solid white;
-  padding: 5px;
+  padding: 15px 5px 5px 5px;
   margin: 0;
   background: rgba(255,255,255,0.2);
 }
@@ -533,13 +540,13 @@ footer p {
 }
 
 h1 {
-  font-size: $h1_size;
-  margin: $h1_margin;
+    font-size: $h1_size;
+    margin: $h1_margin;
 }
 
 h2 {
   font-size: $h2_size;
-  margin: $h1_margin;
+  margin: $h2_margin;
 }
 
 h3 {
@@ -549,7 +556,7 @@ h3 {
 
 h4 {
   font-size: $h4_size;
-  margin: $h4_margin;
+  margin: $h4_size;
 }
 
 p {
@@ -640,7 +647,7 @@ body.home {
 }
 
 #gallery .overlay .title {
-  top: 23%;
+  top: 41%;
 }
 
 
@@ -711,13 +718,13 @@ body.home {
 @media screen and (min-width: $MEDIUM_MARK) {
 
   body {
-    background-size: body_background_size_w2;
+    background-size: $body_background_size_w2;
   }
 
   h1 {
     font-size: $h1_size_w2;
   }
-  
+
   h2 {
     font-size: $h2_size_w2;
   }
@@ -729,7 +736,6 @@ body.home {
   h4 {
     font-size: $h4_size_w2;
   }
-
 
   .medium .overlay .title {
     font-size: $overlay_title_medium_w2;
@@ -748,9 +754,9 @@ body.home {
   }
 
   /*= GRIDS -------------------*/
-  /* medium grid is 2col
-  ** small grid is 3col 
-  */
+  /* 480 < vp < 800 MEDIUM mark */
+  
+  /** small grid is 3col **/
 
   .small:nth-child(n) {
     width: 32%;
@@ -766,7 +772,6 @@ body.home {
     float: left;
   }
 
-
   /* 3rd, 6th, 9th..  --> right column */
   .small:nth-child(3),
   .small:nth-child(3n+3) {
@@ -774,6 +779,9 @@ body.home {
     float: right;
     clear: right;
   }
+
+
+  /** medium grid is 2col **/
 
   .medium {
     width: 48%;
@@ -803,11 +811,13 @@ body.home {
     margin-left: $margin_links1_w2;
   }
 
+
   /*= home -------------------------*/
 
   #home-gallery .tile-wrapper {
     height: $home_grid_height_w2;
   }
+
 
   /*= detail -------------------------*/
 
@@ -857,7 +867,7 @@ body.home {
   h1 {
     font-size: $h1_size_w3;
   }
-  
+
   h2 {
     font-size: $h2_size_w3;
   }
@@ -869,12 +879,14 @@ body.home {
   h4 {
     font-size: $h4_size_w3;
   }
-
   
   .centered.overlay {
     top: 57%;
   }
 
+  .small .overlay .title {
+    font-size: $overlay_title_small_w3;
+  }
 
   /*= logo -------------------*/
 
@@ -895,42 +907,41 @@ body.home {
   }
 
 
-  /*= GRID -------------------*/
-
-  /* .small (in gallery page) 4 columns */
+  /*= GRIDS -------------------*/
+  /* 800 < vp < 1000 BIG mark */
+  
+  /** small grid is 4col **/
   .small:nth-child(n) {
     width: 23%;
     @include small_reset;
   }
 
 
-  /* 1st, 5th, 10th.. --> left column */
+  /* 1st, 5th, 9th.. --> left column */
   .small:first-child,
-  .small:nth-child(5n+1) { 
+  .small:nth-child(4n+1) { 
     margin-left: 0;
     clear: left; 
     float: left;
   }
 
-  /* 2nd, 7th, 12th.. --> second column */
+  /* 2nd, 6th, 10th.. --> second column */
   .small:nth-child(2),
-  .small:nth-child(5n+2) {
+  .small:nth-child(4n+2) {
     float: none; 
     clear: both; 
-    margin: 1%;
   }
 
-  /* 3rd, 8th, 13th..  --> third column */
+  /* 3rd, 7th, 11th..  --> third column */
   .small:nth-child(3),
-  .small:nth-child(5n+3) {
-    margin: 1%;
+  .small:nth-child(4n+3) {
     clear: both;
     float: none;
   }
 
-  /* 4rth, 9th, 14th..  --> fourth column */
-  .small:nth-child(3),
-  .small:nth-child(4n+3) {
+  /* 4rth, 8th, 12th..  --> fourth column */
+  .small:nth-child(4),
+  .small:nth-child(4n+4) {
     margin-right: 0;
     clear: right;
     float: right;
@@ -954,6 +965,10 @@ body.home {
     top: 56%;
   } 
 
+  .small .overlay .title {
+    font-size: $overlay_title_small_w4;
+  }
+
   #gallery li:last-child {
    /* display: none;*/ /* quick fix -> update to conditional if more then actual tiles */
   }
@@ -962,48 +977,5 @@ body.home {
     margin: 3vh auto;
   }
 
-  /*= GRID -------------------*/
-
-  /* .small (in gallery page) 4 columns */
-  .small {
-    width: 24%;
-    @include small_reset;
-  }
-
-  .small .overlay .title {
-    font-size: $overlay_title_small_w4;
-  }
-
-
-  /* 1st, 5th, 10th.. --> left column */
-  .small:first-child,
-  .small:nth-child(5n+1) { 
-    margin-left: 0;
-    clear: left; 
-    float: left;
-  }
-
-  /* 2nd, 7th, 12th.. --> second column */
-  .small:nth-child(2),
-  .small:nth-child(5n+2) {
-    float: none; 
-    clear: both; 
-    margin: .2%;
-  }
-
-  /* 3rd, 8th, 13th..  --> third column */
-  .small:nth-child(3),
-  .small:nth-child(5n+3) {
-    margin: .2%;
-    clear: both;
-    float: none;
-  }
-
-  /* 4rth, 9th, 14th..  --> fourth column */
-  .small:nth-child(3),
-  .small:nth-child(4n+3) {
-    margin-right: 0;
-    clear: right;
-    float: right;
-  }
+  
 }

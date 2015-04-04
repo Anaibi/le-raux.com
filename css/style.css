@@ -156,9 +156,12 @@ html {
   width: 100%;
   display: inline-block; }
 
+.text-tile li {
+  line-height: 2; }
+
 .text-tile hr {
   width: 15%;
-  margin: 5.5% 0;
+  margin: 5.1% 0;
   border: 1px solid #333; }
 
 /*= OVERLAYS classes -------------------*/
@@ -180,7 +183,7 @@ html {
   text-align: center;
   color: white;
   position: relative;
-  top: 37%; }
+  top: 41%; }
 
 .overlay hr {
   width: 10%;
@@ -210,7 +213,7 @@ html {
 
 .border .title {
   border: .7vw solid white;
-  padding: 5px;
+  padding: 15px 5px 5px 5px;
   margin: 0;
   background: rgba(255, 255, 255, 0.2); }
 
@@ -309,7 +312,7 @@ html {
 
 /*=BASE LAYOUT ------------------------------------------------*/
 body {
-  font: 62.5% "Lato", sans-serif;
+  font: 62.5% Helvetica, Arial, "Lucida Grande", sans-serif, "Lato", sans-serif;
   color: #333;
   min-height: 100vh;
   background: url("../img/detail-top.jpg") no-repeat;
@@ -342,7 +345,7 @@ h1 {
 
 h2 {
   font-size: 4.5vw;
-  margin: 0.67em 0; }
+  margin: 0.5em 0; }
 
 h3 {
   font-size: 4vw;
@@ -350,7 +353,7 @@ h3 {
 
 h4 {
   font-size: 3.5vw;
-  margin: 0.3em 0; }
+  margin: 3.5vw; }
 
 p {
   font-size: 2.3vw;
@@ -415,7 +418,7 @@ body.home {
   line-height: 1.8em; }
 
 #gallery .overlay .title {
-  top: 23%; }
+  top: 41%; }
 
 /*= detail -------------------*/
 #detail-img .tile-wrapper:last-child {
@@ -471,7 +474,7 @@ body.home {
 /* borrar luego pero need for ref: 480<vp<800*/
 @media screen and (min-width: 480px) {
   body {
-    background-size: body_background_size_w2; }
+    background-size: 100% 5px; }
 
   h1 {
     font-size: 3vw; }
@@ -498,9 +501,8 @@ body.home {
     top: 55%; }
 
   /*= GRIDS -------------------*/
-  /* medium grid is 2col
-  ** small grid is 3col 
-  */
+  /* 480 < vp < 800 MEDIUM mark */
+  /** small grid is 3col **/
   .small:nth-child(n) {
     width: 32%;
     float: none;
@@ -521,6 +523,7 @@ body.home {
     float: right;
     clear: right; }
 
+  /** medium grid is 2col **/
   .medium {
     width: 48%;
     float: left;
@@ -587,6 +590,9 @@ body.home {
   .centered.overlay {
     top: 57%; }
 
+  .small .overlay .title {
+    font-size: 3vw; }
+
   /*= logo -------------------*/
   #logo {
     width: 13%; }
@@ -599,38 +605,37 @@ body.home {
     position: relative;
     top: 6vh; }
 
-  /*= GRID -------------------*/
-  /* .small (in gallery page) 4 columns */
+  /*= GRIDS -------------------*/
+  /* 800 < vp < 1000 BIG mark */
+  /** small grid is 4col **/
   .small:nth-child(n) {
     width: 23%;
     float: none;
     clear: both;
     margin: 1%; }
 
-  /* 1st, 5th, 10th.. --> left column */
+  /* 1st, 5th, 9th.. --> left column */
   .small:first-child,
-  .small:nth-child(5n+1) {
+  .small:nth-child(4n+1) {
     margin-left: 0;
     clear: left;
     float: left; }
 
-  /* 2nd, 7th, 12th.. --> second column */
+  /* 2nd, 6th, 10th.. --> second column */
   .small:nth-child(2),
-  .small:nth-child(5n+2) {
+  .small:nth-child(4n+2) {
     float: none;
-    clear: both;
-    margin: 1%; }
+    clear: both; }
 
-  /* 3rd, 8th, 13th..  --> third column */
+  /* 3rd, 7th, 11th..  --> third column */
   .small:nth-child(3),
-  .small:nth-child(5n+3) {
-    margin: 1%;
+  .small:nth-child(4n+3) {
     clear: both;
     float: none; }
 
-  /* 4rth, 9th, 14th..  --> fourth column */
-  .small:nth-child(3),
-  .small:nth-child(4n+3) {
+  /* 4rth, 8th, 12th..  --> fourth column */
+  .small:nth-child(4),
+  .small:nth-child(4n+4) {
     margin-right: 0;
     clear: right;
     float: right; } }
@@ -645,50 +650,13 @@ body.home {
   .centered.overlay {
     top: 56%; }
 
+  .small .overlay .title {
+    font-size: 1.8vw; }
+
   #gallery li:last-child {
     /* display: none;*/
     /* quick fix -> update to conditional if more then actual tiles */ }
 
   #detail-suggest hr {
-    margin: 3vh auto; }
+    margin: 3vh auto; } }
 
-  /*= GRID -------------------*/
-  /* .small (in gallery page) 4 columns */
-  .small {
-    width: 24%;
-    float: none;
-    clear: both;
-    margin: 1%; }
-
-  .small .overlay .title {
-    font-size: 1.5vw; }
-
-  /* 1st, 5th, 10th.. --> left column */
-  .small:first-child,
-  .small:nth-child(5n+1) {
-    margin-left: 0;
-    clear: left;
-    float: left; }
-
-  /* 2nd, 7th, 12th.. --> second column */
-  .small:nth-child(2),
-  .small:nth-child(5n+2) {
-    float: none;
-    clear: both;
-    margin: .2%; }
-
-  /* 3rd, 8th, 13th..  --> third column */
-  .small:nth-child(3),
-  .small:nth-child(5n+3) {
-    margin: .2%;
-    clear: both;
-    float: none; }
-
-  /* 4rth, 9th, 14th..  --> fourth column */
-  .small:nth-child(3),
-  .small:nth-child(4n+3) {
-    margin-right: 0;
-    clear: right;
-    float: right; } }
-
-/*# sourceMappingURL=style.css.map */
