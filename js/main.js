@@ -15,9 +15,9 @@ $(function() {
       	//loadGallery();
       	// fix gallery last li item bug on chrome gets out of position
         if ($(window).width() > 1000) {
-          $('#gallery li:last-child').css('float', 'none');
+          $('#gallery li.tile-wrapper:last-child').css('float', 'none');
     	  setTimeout(function() {
-    	    $('#gallery > li:last-child').css('float', 'right');
+    	    $('#gallery li.tile-wrapper:last-child').css('float', 'right');
     	  }, 200);
         }
      	
