@@ -13,18 +13,12 @@ $(function() {
       // if on gallery page load #gallery imgs
       if (isPage('gallery')) { console.log('is page gallery');
       	//loadGallery();
-      	// fix gallery last li item bug on chrome gets out of position
-        if ($(window).width() > 1000) {
-          $('#gallery li.tile-wrapper:last-child').css('float', 'none');
-    	  setTimeout(function() {
-    	    $('#gallery li.tile-wrapper:last-child').css('float', 'right');
-    	  }, 200);
-        }
-     	
+      	fixGalleryLastItemBug();
       }
 
     // if (imgsLoaded) {  ------------ TODO -loadGallery() not working 100% yet
       // center in all tiles
+      // chrome window width>1000 issue TODO find css solution
       centerImgsTiles();
     // }
 
@@ -49,8 +43,8 @@ $(function() {
     }
 
     if (isPage('gallery')) { console.log('is gallery');
-    	// fix gallery last li item bug on chrome gets out of position
-    	$('#gallery li:last-child').css('float', 'none');
+    	// chrome window width>1000 issue
+    	fixGalleryLastItemBug();
     }
 
   });	
@@ -199,6 +193,18 @@ $('#detail-img li').on('click', function() {
 
 
   //////////////////////////////////////// DEVELOPMENT FUNCTIONS
+
+  function fixGalleryLastItemBug() {
+    // fix gallery last li item bug on chrome biggest layout, gets out of position
+    // TODO find css solution
+    // TODO check other browsers what happens
+    if ($(window).width() > 1000) { console.log('chrome biggest width');
+      $('#gallery li.tile-wrapper:last-child').css('float', 'none');
+      setTimeout(function() {
+        $('#gallery li.tile-wrapper:last-child').css('float', 'right');
+      }, 200);
+    }
+  }
 
   function fillGallery() {
     // img object contains all information related with one image
