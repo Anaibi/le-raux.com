@@ -17,7 +17,7 @@ $(function() {
         if ($(window).width() > 1000) {
           $('#gallery li:last-child').css('float', 'none');
     	  setTimeout(function() {
-    	    $('#gallery li:last-child').css('float', 'right');
+    	    $('#gallery > li:last-child').css('float', 'right');
     	  }, 200);
         }
      	
