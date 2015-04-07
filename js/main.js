@@ -13,6 +13,14 @@ $(function() {
       // if on gallery page load #gallery imgs
       if (isPage('gallery')) { console.log('is page gallery');
       	//loadGallery();
+      	// fix gallery last li item bug on chrome gets out of position
+        if ($(window).width() > 1000) {
+          $('#gallery li:last-child').css('float', 'none');
+    	  setTimeout(function() {
+    	    $('#gallery li:last-child').css('float', 'right');
+    	  }, 200);
+        }
+     	
       }
 
     // if (imgsLoaded) {  ------------ TODO -loadGallery() not working 100% yet
@@ -38,6 +46,11 @@ $(function() {
     // TODO find only css solution?
     if (isPage('detail')) {
     	setGalleryHeight();
+    }
+
+    if (isPage('gallery')) { console.log('is gallery');
+    	// fix gallery last li item bug on chrome gets out of position
+    	$('#gallery li:last-child').css('float', 'none');
     }
 
   });	

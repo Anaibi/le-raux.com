@@ -145,8 +145,7 @@ html {
   height: 100%;
   display: inline-block;
   max-height: 350px;
-  margin: 1%;
-  vertical-align: top; }
+  margin: 1%; }
 
 .tile-wrapper img {
   position: relative; }
