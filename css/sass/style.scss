@@ -661,6 +661,10 @@ body.home {
   text-align: center; 
 }
 
+#gallery ul {
+  display: inline-block; /* push last gallery item into position */
+}
+
 #gallery .tile-wrapper {
   text-align: initial;
 }

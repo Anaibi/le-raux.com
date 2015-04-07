@@ -417,6 +417,10 @@ body.home {
 #gallery {
   text-align: center; }
 
+#gallery ul {
+  display: inline-block;
+  /* push last gallery item into position */ }
+
 #gallery .tile-wrapper {
   text-align: initial; }
 
@@ -688,3 +692,4 @@ body.home {
   #detail-suggest hr {
     margin: 0 auto; } }
 
+/*# sourceMappingURL=style.css.map */

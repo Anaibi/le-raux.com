@@ -13,7 +13,6 @@ $(function() {
       // if on gallery page load #gallery imgs
       if (isPage('gallery')) { console.log('is page gallery');
       	//loadGallery();
-      	fixGalleryLastItemBug();
       }
 
     // if (imgsLoaded) {  ------------ TODO -loadGallery() not working 100% yet
@@ -40,11 +39,6 @@ $(function() {
     // TODO find only css solution?
     if (isPage('detail')) {
     	setGalleryHeight();
-    }
-
-    if (isPage('gallery')) { console.log('is gallery');
-    	// chrome window width>1000 issue
-    	fixGalleryLastItemBug();
     }
 
   });	
@@ -193,18 +187,6 @@ $('#detail-img li').on('click', function() {
 
 
   //////////////////////////////////////// DEVELOPMENT FUNCTIONS
-
-  function fixGalleryLastItemBug() {
-    // fix gallery last li item bug on chrome biggest layout, gets out of position
-    // TODO find css solution
-    // TODO check other browsers what happens
-    if ($(window).width() > 1000) { console.log('chrome biggest width');
-      $('#gallery li.tile-wrapper:last-child').css('float', 'none');
-      setTimeout(function() {
-        $('#gallery li.tile-wrapper:last-child').css('float', 'right');
-      }, 200);
-    }
-  }
 
   function fillGallery() {
     // img object contains all information related with one image
